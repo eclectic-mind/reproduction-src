@@ -11,10 +11,12 @@ $pad: 25px;
 $font-size: 18px;
 $svgBlur: url("#blur");
 $brd: 5px;
+$top-thumb-height: 142px;
+$thumb-margin: 18px;
+$top-slider-height: 500px;
+$nav-slider-height: 6 * ($top-thumb-height + $thumb-margin);
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import "slick.scss";
-@import "slick-theme.scss";
 
 * {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -141,7 +143,7 @@ form {
     }
   }
 
-  input.mail.wrong {
+  .wrong {
     background-color: $color-pink;
     color: $color-red;
   }
@@ -160,19 +162,20 @@ form {
 
     &:hover,
     &:focus {
-      -webkit-box-shadow: 0px 0px 5px 0px rgba(2, 74, 137, 1);
-      -moz-box-shadow: 0px 0px 5px 0px rgba(2, 74, 137, 1);
-      box-shadow: 0px 0px 5px 0px rgba(2, 74, 137, 1);
+      -webkit-box-shadow: 0px 0px 10px 0px rgba(2, 74, 137, 1);
+      -moz-box-shadow: 0px 0px 10px 0px rgba(2, 74, 137, 1);
+      box-shadow: 0px 0px10px 0px rgba(2, 74, 137, 1);
     }
   }
 }
 
-.error-message {
+.error-notice {
   color: $color-red;
   font-size: 0.85em;
   position: absolute;
   margin: 5px 0 0 0;
   left: 320px;
+  min-width: 200px;
 }
 
 .slogan {
@@ -236,7 +239,7 @@ strong,
 }
 
 .slider1 {
-  height: 500px;
+  height: $top-slider-height;
   display: flex;
   position: relative;
 
@@ -262,21 +265,32 @@ strong,
   }
 
   .container {
-    height: 500px;
+    height: $top-slider-height;
     width: 800px;
     overflow: hidden;
     position: relative;
 
-    .slide {
-      border-radius: $brd;
-      height: 500px;
-      width: 800px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
+    .slider-vertical {
+      position: relative;
+      width: calc(100% * 6);
+      height: $top-slider-height;
       display: flex;
-      align-items: flex-end;
+      justify-content: start;
+      flex-wrap: nowrap;
+
+
+      .slide {
+        border-radius: $brd;
+        height: $top-slider-height;
+        width: 800px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+      }
     }
+
   }
 
   .slide1 {
@@ -291,10 +305,22 @@ strong,
     background-image: url('/img/vrubel.jpg');
   }
 
+  .slide4 {
+    background-image: url('/img/david.jpg');
+  }
+
+  .slide5 {
+    background-image: url('/img/vermeer.jpg');
+  }
+
+  .slide6 {
+    background-image: url('/img/karavajjo.jpg');
+  }
+
 
   .details {
     background-color: rgba(0, 0, 0, 0.7);
-    width: 50%;
+    min-width: 50%;
     height: 55px;
     color: $color-white;
     padding: 10px 15px;
@@ -302,30 +328,53 @@ strong,
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: space-between;
+
+    .numbers {
+      margin-left: 15px;
+    }
   }
 }
 
 
 .previews {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0 0 0 20px;
+  position: relative;
+  margin: $thumb-margin 0 0 $thumb-margin;
   width: 230px;
+  height: calc($top-slider-height + $thumb-margin);
+  overflow: hidden;
 
-  .prv {
-    height: 180px;
-    width: 220px;
-    margin: 10px 0;
-    border-radius: $brd;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    &:hover {
-      opacity: 50%;
-    }
+  .previews-container {
+    height: calc(6 * $nav-slider-height);
+    position: relative;
   }
 }
+
+.prv {
+  display: block;
+  height: $top-thumb-height;
+  width: 220px;
+  margin-bottom: $thumb-margin;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: $brd;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $color-white;
+
+  &.active {
+    opacity: 0.6;
+  }
+
+  &:hover {
+    opacity: 0.4;
+    border-color: $color-black;
+  }
+
+}
+
 
 .slider2 {
 
@@ -340,13 +389,13 @@ strong,
 
   .container {
     width: 1320px;
-    height: 500px;
+    height: $top-slider-height;
     overflow: hidden;
 
     .slider-carousel {
       position: relative;
       width: calc(100% * 6);
-      height: 500px;
+      height: $top-slider-height;
       display: flex;
       justify-content: start;
       flex-wrap: nowrap;
@@ -367,7 +416,7 @@ strong,
 
       &:hover {
         img {
-          outline: solid 1px $color-black;
+          outline: solid 1px $color-white;
         }
       }
     }
@@ -465,7 +514,7 @@ strong,
   }
 }
 
-#rules-popup {
+.modal {
   width: 800px;
   padding: 40px 110px 80px 30px;
   background-color: $color-white;
