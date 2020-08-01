@@ -1,35 +1,67 @@
-a(href="#")#prev.arrow-left
-a(href="#")#next.arrow-right
+a(href="#")#prev-top.arrow-left
+a(href="#")#next-top.arrow-right
 
-.container
-  .slide.slide1 
-    .details
-      span.names
-        strong(itemprop="name") Рождение Венеры, 
-          span(itemprop="year") 1636
-        span(itemprop="creator") Никола Пуссен
-      span(itemprop="size").numbers 97 х 108 см, 
-        span(itemprop="material") холст
-        span(itemprop="price").price 2400
-  .slide.slide2 
-    .details
-      span.names
-        strong(itemprop="name") Шестикрылый Серафим,
-          span(itemprop="year") 1904
-        span(itemprop="creator") Михаил Врубель
-        span(itemprop="size").numbers 131 х 155 см,
+.container#banners
+  .slider-vertical(style="left: 0")
+    .slide(itemscope, itemtype="https://schema.org/VisualArtwork").slide-vert.slide1 
+      .details
+        span.names
+          strong(itemprop="name") Рождение Венеры, 
+            span(itemprop="year") 1636
+          span(itemprop="creator") Никола Пуссен
+        span(itemprop="size").numbers 97 х 108 см, 
+          span(itemprop="material") холст
+          span(itemprop="price").price 2400
+    .slide(itemscope, itemtype="https://schema.org/VisualArtwork").slide-vert.slide3 
+      .details
+        span.names
+          strong(itemprop="name") Шестикрылый Серафим, 
+            span(itemprop="year") 1904
+          span(itemprop="creator") Михаил Врубель
+        span(itemprop="size").numbers 131 х 155 см, 
           span(itemprop="material") холст
           span(itemprop="price").price 4100
-  .slide.slide3 
-    .details
-      span.names
-        strong(itemprop="name") Охотники на снегу,
-          span(itemprop="year") 1565
-        span(itemprop="creator") Питер Брейгель Старший
-      span(itemprop="size").numbers 117 х 162 см
-        span(itemprop="material") холст
-        span(itemprop="price").price 3700
-.previews
-  a(href="#").prv.slide1
-  a(href="#").prv.slide2
-  a(href="#").prv.slide3
+    .slide(itemscope, itemtype="https://schema.org/VisualArtwork").slide-vert.slide2 
+      .details
+        span.names
+          strong(itemprop="name") Охотники на снегу, 
+            span(itemprop="year") 1565
+          span(itemprop="creator") Питер Брейгель Старший
+        span(itemprop="size").numbers 117 х 162 см, 
+          span(itemprop="material") холст
+          span(itemprop="price").price 3700
+    .slide(itemscope, itemtype="https://schema.org/VisualArtwork").slide-vert.slide4 
+      .details
+        span.names
+          strong(itemprop="name") Бонапарт на перевале Сен-Бернар, 
+            span(itemprop="year") 1801
+          span(itemprop="creator") Жан-Луи Давид
+        span(itemprop="size").numbers 97 х 108 см, 
+          span(itemprop="material") холст
+          span(itemprop="price").price 2400
+    .slide(itemscope, itemtype="https://schema.org/VisualArtwork").slide-vert.slide5 
+      .details
+        span.names
+          strong(itemprop="name") Девушка с жемчужной сережкой, 
+            span(itemprop="year") 1665
+          span(itemprop="creator") Ян Вермеер
+        span(itemprop="size").numbers 261 х 220 см, 
+          span(itemprop="material") холст
+          span(itemprop="price").price 3900
+    .slide(itemscope, itemtype="https://schema.org/VisualArtwork").slide-vert.slide6 
+      .details
+        span.names
+          strong(itemprop="name") Призвание апостола Матфея, 
+            span(itemprop="year") 1599
+          span(itemprop="creator") Микеланджело Меризи да Караваджо
+        span(itemprop="size").numbers 322 × 340 см, 
+          span(itemprop="material") холст
+          span(itemprop="price").price 5300
+.previews#thumbs(style="top: 0")
+  .previews-container
+    a(href="#").prv.slide1
+    a(href="#").prv.slide3
+    a(href="#").prv.slide2
+    a(href="#").prv.slide4
+    a(href="#").prv.slide5
+    a(href="#").prv.slide6

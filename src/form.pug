@@ -1,0 +1,19 @@
+- var email = "shop@reproduct.io";
+
+.feedback-wrapper
+  .text
+    h2 Написать нам
+    p Заполните форму справа<br>или отправьте письмо на 
+      a(href= "mailto:" + email, itemprop="email") #{email}
+    .copyrights
+      | Репродукцио, 2019<br>
+      a(href="#rules-popup").rules Правила обработки персональных данных
+  form#write-us.feedback-form(action="#", name="form", method="POST", novalidate)
+    #error-mail.error-notice.invisible Введите почту в формате xxx@xxx.xxx
+    input(placeholder="Эл. почта", type="email", name="email", required)#email.mail
+    #error-msg.error-notice.invisible Сообщение не должно быть пустым
+    textarea(placeholder="Сообщение", name="message", rows="5", required)#text.message
+    button#send Отправить сообщение
+  #success-msg.success.invisible
+    h3 Отправлено
+    p Мы ответим вам на почту<br>в течение нескольких рабочих дней

@@ -3,36 +3,45 @@ import $ from "jquery";
 global.jQuery = $;
 global.$ = $;
 
-const viewport = $("#viewport").width();
-const slider = $("div.slider-carousel");
-let viewSlide = 0;
+$(document).ready(() => {
+  $('.js-lazy').each((index, el) => {
+    const $image = $(el);
+    const realSrc = $image.attr('data-src');
 
-$("#next-bottom").click(function () {
-  event.preventDefault();
-  if (viewSlide < 1) {
-    viewSlide++;
-  } else {
-    viewSlide = 0;
-  }
-
-  slider.animate({
-    'left': -viewSlide * viewport + "px"
-  }, {
-    'duration': 500
-  })
+    $image.attr('src', realSrc);
+  });
 });
 
-$("#prev-bottom").click(function () {
-  event.preventDefault();
-  if (viewSlide > 0) {
-    viewSlide--;
-  } else {
-    viewSlide = 1;
-  }
+const viewport = $("#viewport").width();
+const slider = $(".slider-carousel");
+let current = 0;
 
+const moveSlides = () => {
   slider.animate({
-    'left': -viewSlide * viewport + "px"
+    'left': -current * viewport + "px"
   }, {
     'duration': 500
   })
+};
+
+$("#next-bottom").on('click', function () {
+  event.preventDefault();
+  if (current < 1) {
+    current++;
+  } else {
+    current = 0;
+  }
+
+  moveSlides();
+});
+
+$("#prev-bottom").on('click', function () {
+  event.preventDefault();
+  if (current > 0) {
+    current--;
+  } else {
+    current = 1;
+  }
+
+  moveSlides();
 });
